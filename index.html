@@ -17,46 +17,106 @@
         <div>
             <h1>Hitung Beras</h1>
         </div>
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-nota-tab" data-bs-toggle="pill" data-bs-target="#pills-nota"
-                    type="button" role="tab" aria-controls="pills-nota" aria-selected="true">Nota</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-barang-masuk-tab" data-bs-toggle="pill" data-bs-target="#pills-barang-masuk"
-                    type="button" role="tab" aria-controls="pills-barang-masuk" aria-selected="false">T.B. Masuk</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-barang-keluar-tab" data-bs-toggle="pill" data-bs-target="#pills-barang-keluar"
-                    type="button" role="tab" aria-controls="pills-barang-keluar" aria-selected="false">T.B. Keluar</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-produksi-beras-tab" data-bs-toggle="pill" data-bs-target="#pills-produksi-beras"
-                    type="button" role="tab" aria-controls="pills-produksi-beras" aria-selected="false">Produksi Beras</button>
-            </li>
 
-        </ul>
+
+        <div class="d-none d-md-block mb-3">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#pills-nota" type="button"
+                        role="tab" aria-controls="pills-nota" aria-selected="true">Nota</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pills-barang-masuk" type="button"
+                        role="tab" aria-controls="pills-barang-masuk" aria-selected="false">T.B. Masuk</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pills-barang-keluar" type="button"
+                        role="tab" aria-controls="pills-barang-keluar" aria-selected="false">T.B. Keluar</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pills-produksi-beras" type="button"
+                        role="tab" aria-controls="pills-produksi-beras" aria-selected="false">Produksi Beras</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-md-none mb-5">
+            <nav class="navbar navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Offcanvas dark navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                        aria-labelledby="offcanvasDarkNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div>
+                                <ul class="nav justify-content-end flex-grow-1 pe-3 d-block">
+                                    <li class="nav-item border-bottom">
+                                        <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#pills-nota"
+                                            type="button" role="button" aria-controls="pills-nota"
+                                            aria-selected="true">Nota</a>
+                                    </li>
+                                    <li class="nav-item border-bottom">
+                                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pills-barang-masuk"
+                                            type="button" role="button" aria-controls="pills-barang-masuk"
+                                            aria-selected="false">T.B. Masuk</a>
+                                    </li>
+                                    <li class="nav-item border-bottom">
+                                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pills-barang-keluar"
+                                            type="button" role="button" aria-controls="pills-barang-keluar"
+                                            aria-selected="false">T.B. Keluar</a>
+                                    </li>
+                                    <li class="nav-item border-bottom">
+                                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#pills-produksi-beras"
+                                            type="button" role="button" aria-controls="pills-produksi-beras"
+                                            aria-selected="false">Produksi Beras</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-nota" role="tabpanel" aria-labelledby="pills-nota-tab"
                 tabindex="0">
-                <table id="tabel_nota" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>No. Polisi</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Merek</th>
-                            <th>Qty</th>
-                            <th>Tipe Kg</th>
-                            <th>Jumlah</th>
-                            <th>Harga</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#tambahItem">Tambah</button>
+                </div>
+                <div class="table-responsive">
+                    <table id="tabel_nota" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No. Polisi</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Merek</th>
+                                <th>Qty</th>
+                                <th>Tipe Kg</th>
+                                <th>Jumlah</th>
+                                <th>Harga</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade" id="pills-barang-masuk" role="tabpanel" aria-labelledby="pills-barang-masuk-tab"
                 tabindex="0">
+                <div>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#tambahItem">Tambah</button>
+                </div>
                 <table id="tabel_barang_masuk" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
@@ -70,10 +130,14 @@
                             <th>Timbangan Lokasi</th>
                         </tr>
                     </thead>
-                </table>    
+                </table>
             </div>
-            <div class="tab-pane fade" id="pills-barang-keluar" role="tabpanel" aria-labelledby="pills-barang-keluar-tab"
-                tabindex="0">
+            <div class="tab-pane fade" id="pills-barang-keluar" role="tabpanel"
+                aria-labelledby="pills-barang-keluar-tab" tabindex="0">
+                <div>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#tambahItem">Tambah</button>
+                </div>
                 <table id="tabel_barang_keluar" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
@@ -85,10 +149,14 @@
                             <th>Timbangan Bersih</th>
                         </tr>
                     </thead>
-                </table>    
+                </table>
             </div>
-            <div class="tab-pane fade" id="pills-produksi-beras" role="tabpanel" aria-labelledby="pills-produksi-beras-tab"
-                tabindex="0">
+            <div class="tab-pane fade" id="pills-produksi-beras" role="tabpanel"
+                aria-labelledby="pills-produksi-beras-tab" tabindex="0">
+                <div>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#tambahItem">Tambah</button>
+                </div>
                 <table id="tabel_nota" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
@@ -100,6 +168,25 @@
                         </tr>
                     </thead>
                 </table>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="tambahItem" tabindex="-1" aria-labelledby="tambahItemLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="tambahItemLabel">Tambah Item</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -118,6 +205,183 @@
         $(document).ready(function () {
             $('#example').DataTable();
         });
+
+        let templateFormNota =
+            `
+        <form>
+            <div class="mb-3">
+                <label for="nomor_polisi_nota" class="form-label">Nomor Polisi</label>
+                <input type="text" class="form-control" id="nomor_polisi_nota">
+            </div>
+            <div class="mb-3">
+                <label for="nama_costumer" class="form-label">Nama Costumer</label>
+                <input type="text" class="form-control" id="nama_costumer">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Merek</label>
+                <select class="form-select" aria-label="Default select example" id="merek">
+                    <option value="Mawar" selected>Mawar</option>
+                    <option value="Jempol">Jempol</option>
+                    <option value="Bambu">Bambu</option>
+                    <option value="Melati">Melati</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="quantity">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Jenis KG</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="jumlah_nota" class="form-label">Jumlah</label>
+                <input type="number" class="form-control" id="jumlah_nota">
+            </div>
+            <div class="mb-3">
+                <label for="harga_nota" class="form-label">Jumlah</label>
+                <input type="number" class="form-control" id="harga_nota">
+            </div>
+            <div class="mb-3">
+                <label for="total_nota" class="form-label">Jumlah</label>
+                <input type="text" class="form-control" id="total_nota">
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+        `
+
+        let templateFormMasuk =
+            `
+        <form>
+            <div class="mb-3">
+                <label for="nomor_polisi_masuk" class="form-label">Nomor Polisi</label>
+                <input type="text" class="form-control" id="nomor_polisi_masuk">
+            </div>
+            <div class="mb-3">
+                <label for="nama_supplier_masuk" class="form-label">Nama Supplier</label>
+                <input type="text" class="form-control" id="nama_supplier_masuk">
+            </div>
+            <div class="mb-3">
+                <label for="tb_masuk_masuk" class="form-label">Tb. Masuk (Kg)</label>
+                <input type="text" class="form-control" id="tb_masuk_masuk">
+            </div>
+            <div class="mb-3">
+                <label for="tb_keluar_masuk" class="form-label">Tb. Keluar (Kg)</label>
+                <input type="text" class="form-control" id="tb_keluar_masuk">
+            </div>
+            <div class="mb-3">
+                <label for="potongan_masuk" class="form-label">Potongan (Kg)</label>
+                <input type="text" class="form-control" id="potongan_masuk">
+            </div>
+            <div class="mb-3">
+                <label for="tb_lokasi_masuk" class="form-label">Tb. Lokasi (Kg)</label>
+                <input type="text" class="form-control" id="tb_lokasi_masuk">
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+        `
+
+        let templateFormKeluar =
+        `
+        <form>
+            <div class="mb-3">
+                <label for="nomor_polisi_keluar" class="form-label">Nomor Polisi</label>
+                <input type="text" class="form-control" id="nomor_polisi_keluar">
+            </div>
+            <div class="mb-3">
+                <label for="nama_costumer_keluar" class="form-label">Nama Costumer</label>
+                <input type="text" class="form-control" id="nama_costumer_keluar">
+            </div>
+            <div class="mb-3">
+                <label for="tb_masuk_keluar" class="form-label">Tb. Masuk (Kg)</label>
+                <input type="text" class="form-control" id="tb_masuk_keluar">
+            </div>
+            <div class="mb-3">
+                <label for="tb_keluar_keluar" class="form-label">Tb. Keluar (Kg)</label>
+                <input type="text" class="form-control" id="tb_keluar_keluar">
+            </div>
+            <div class="mb-3">
+                <label for="tb_bersih_keluar" class="form-label">Tb. Bersih (Kg)</label>
+                <input type="text" class="form-control" id="tb_bersih_keluar">
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+        `
+
+        let templateFormProduksi =
+            `
+        <form>
+            <div class="mb-3">
+                <label for="nomor_polisi_produksi" class="form-label">Nomor Polisi</label>
+                <input type="text" class="form-control" id="nomor_polisi_produksi">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Merek</label>
+                <select class="form-select" aria-label="Default select example" id="merek">
+                    <option value="Mawar" selected>Mawar</option>
+                    <option value="Jempol">Jempol</option>
+                    <option value="Bambu">Bambu</option>
+                    <option value="Melati">Melati</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="quantity_produksi" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="quantity_produksi">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Jenis KG</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="jumlah_produksi" class="form-label">Jumlah</label>
+                <input type="number" class="form-control" id="jumlah_produksi">
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </form>
+        `
+
+        const myModalEl = document.getElementById('tambahItem')
+        myModalEl.addEventListener('show.bs.modal', event => {
+            let idTombol = $(event.relatedTarget).parents().eq(1).attr('id')
+            console.log(idTombol)
+
+            switch (idTombol) {
+                case 'pills-nota':
+                    $('#tambahItem .modal-body').html(templateFormNota)
+                    break;
+                case 'pills-barang-masuk':
+                    $('#tambahItem .modal-body').html(templateFormMasuk)
+                    break;
+                case 'pills-barang-keluar':
+                    $('#tambahItem .modal-body').html(templateFormKeluar)
+                    break;
+                case 'pills-produksi-beras':
+                    $('#tambahItem .modal-body').html(templateFormProduksi)
+                    break;
+            }
+        })
+
     </script>
 </body>
 
