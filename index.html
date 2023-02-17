@@ -147,20 +147,22 @@
                         T.B. MASUK
                     </div>
                 </div>
-                <table id="tabel_barang_masuk" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>No. Polisi</th>
-                            <th>Supplier</th>
-                            <th>Timbangan Masuk (kg)</th>
-                            <th>Timbangan Keluar (kg)</th>
-                            <th>Timbangan Bersih (kg)</th>
-                            <th>Potongan</th>
-                            <th>Timbangan Lokasi</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div class="table-responsive">
+                    <table id="tabel_barang_masuk" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No. Polisi</th>
+                                <th>Supplier</th>
+                                <th>Timbangan Masuk (kg)</th>
+                                <th>Timbangan Keluar (kg)</th>
+                                <th>Timbangan Bersih (kg)</th>
+                                <th>Potongan</th>
+                                <th>Timbangan Lokasi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade" id="pills-barang-keluar" role="tabpanel"
                 aria-labelledby="pills-barang-keluar-tab" tabindex="0">
@@ -173,18 +175,20 @@
                         T.B. KELUAR
                     </div>
                 </div>
-                <table id="tabel_barang_keluar" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>No. Polisi</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Timbangan Masuk</th>
-                            <th>Timbangan Keluar</th>
-                            <th>Timbangan Bersih</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div class="table-responsive">
+                    <table id="tabel_barang_keluar" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No. Polisi</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Timbangan Masuk</th>
+                                <th>Timbangan Keluar</th>
+                                <th>Timbangan Bersih</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade" id="pills-produksi-beras" role="tabpanel"
                 aria-labelledby="pills-produksi-beras-tab" tabindex="0">
@@ -197,17 +201,19 @@
                         PRODUKSI
                     </div>
                 </div>
-                <table id="tabel_produksi" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Merek</th>
-                            <th>Qty</th>
-                            <th>Tipe Kg</th>
-                            <th>Jumlah Produksi</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div class="table-responsive">
+                    <table id="tabel_produksi" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Merek</th>
+                                <th>Qty</th>
+                                <th>Tipe Kg</th>
+                                <th>Jumlah Produksi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade" id="pills-atur" role="tabpanel" aria-labelledby="pills-produksi-beras-tab"
                 tabindex="0">
@@ -220,16 +226,18 @@
                         Pengaturan
                     </div>
                 </div>
-                <table id="tabel_atur" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Merek</th>
-                            <th>Tipe Kg</th>
-                            <th>Harga Satuan</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div class="table-responsive">
+                    <table id="tabel_atur" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Merek</th>
+                                <th>Tipe Kg</th>
+                                <th>Harga Satuan</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -456,7 +464,7 @@
                 case 'pills-nota':
                     // toggleActiveNav('.nota')
                     $('#tambahItem .modal-body').html(templateFormNota)
-                    kirimForm()
+                    console.log(kirimForm())
                     break;
                 case 'pills-barang-masuk':
                     // toggleActiveNav('.masuk')
@@ -500,12 +508,12 @@
             $('form').submit(function (e) {
                 e.preventDefault()
                 let hasil = kirim($(this).serializeArray())
-                hasil.then(resp => {
-                    console.log(resp)
+                return hasil.then(resp => {
+                    // $('#tabel_nota')
+                    return JSON.parse(resp.sukses)
                 })
             })
         }
-
 
     </script>
 </body>
