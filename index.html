@@ -10,6 +10,9 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.2/b-2.3.4/b-html5-2.3.4/date-1.3.0/datatables.min.css" />
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -40,6 +43,10 @@
                         <button class="nav-link produksi" data-bs-toggle="tab" data-bs-target="#pills-produksi-beras"
                             type="button" role="tab" aria-controls="pills-produksi-beras" aria-selected="false">Produksi
                             Beras</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link atur" data-bs-toggle="tab" data-bs-target="#pills-atur" type="button"
+                            role="tab" aria-controls="pills-atur" aria-selected="false">Pengaturan</button>
                     </li>
                 </ul>
             </nav>
@@ -85,6 +92,11 @@
                                             aria-controls="pills-produksi-beras" aria-selected="false">Produksi
                                             Beras</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link atur" data-bs-toggle="tab" data-bs-target="#pills-atur"
+                                            type="button" role="button" aria-controls="pills-atur"
+                                            aria-selected="false">Pengaturan</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -97,9 +109,14 @@
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-nota" role="tabpanel" aria-labelledby="pills-nota-tab"
                 tabindex="0">
-                <div>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#tambahItem">Tambah</button>
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#tambahItem">Tambah</button>
+                    </div>
+                    <div class="col">
+                        NOTA
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <table id="tabel_nota" class="table table-striped" style="width:100%">
@@ -121,61 +138,106 @@
             </div>
             <div class="tab-pane fade" id="pills-barang-masuk" role="tabpanel" aria-labelledby="pills-barang-masuk-tab"
                 tabindex="0">
-                <div>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#tambahItem">Tambah</button>
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#tambahItem">Tambah</button>
+                    </div>
+                    <div class="col">
+                        T.B. MASUK
+                    </div>
                 </div>
-                <table id="tabel_barang_masuk" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>No. Polisi</th>
-                            <th>Supplier</th>
-                            <th>Timbangan Masuk (kg)</th>
-                            <th>Timbangan Keluar (kg)</th>
-                            <th>Timbangan Bersih (kg)</th>
-                            <th>Potongan</th>
-                            <th>Timbangan Lokasi</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div class="table-responsive">
+                    <table id="tabel_barang_masuk" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No. Polisi</th>
+                                <th>Supplier</th>
+                                <th>Timbangan Masuk (kg)</th>
+                                <th>Timbangan Keluar (kg)</th>
+                                <th>Timbangan Bersih (kg)</th>
+                                <th>Potongan</th>
+                                <th>Timbangan Lokasi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade" id="pills-barang-keluar" role="tabpanel"
                 aria-labelledby="pills-barang-keluar-tab" tabindex="0">
-                <div>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#tambahItem">Tambah</button>
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#tambahItem">Tambah</button>
+                    </div>
+                    <div class="col">
+                        T.B. KELUAR
+                    </div>
                 </div>
-                <table id="tabel_barang_keluar" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>No. Polisi</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Timbangan Masuk</th>
-                            <th>Timbangan Keluar</th>
-                            <th>Timbangan Bersih</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div class="table-responsive">
+                    <table id="tabel_barang_keluar" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No. Polisi</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Timbangan Masuk</th>
+                                <th>Timbangan Keluar</th>
+                                <th>Timbangan Bersih</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade" id="pills-produksi-beras" role="tabpanel"
                 aria-labelledby="pills-produksi-beras-tab" tabindex="0">
-                <div>
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#tambahItem">Tambah</button>
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#tambahItem">Tambah</button>
+                    </div>
+                    <div class="col">
+                        PRODUKSI
+                    </div>
                 </div>
-                <table id="tabel_nota" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Merek</th>
-                            <th>Qty</th>
-                            <th>Tipe Kg</th>
-                            <th>Jumlah Produksi</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div class="table-responsive">
+                    <table id="tabel_produksi" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Merek</th>
+                                <th>Qty</th>
+                                <th>Tipe Kg</th>
+                                <th>Jumlah Produksi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-atur" role="tabpanel" aria-labelledby="pills-produksi-beras-tab"
+                tabindex="0">
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#tambahItem">Tambah</button>
+                    </div>
+                    <div class="col">
+                        Pengaturan
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="tabel_atur" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Merek</th>
+                                <th>Tipe Kg</th>
+                                <th>Harga Satuan</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -211,23 +273,52 @@
 
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#tabel_nota').DataTable({
+                search: {
+                    return: true,
+                },
+            });
+
+            $('#tabel_barang_masuk').DataTable({
+                search: {
+                    return: true,
+                },
+            });
+
+            $('#tabel_barang_keluar').DataTable({
+                search: {
+                    return: true,
+                },
+            });
+
+            $('#tabel_produksi').DataTable({
+                search: {
+                    return: true,
+                },
+            });
+
+            $('#tabel_atur').DataTable({
+                search: {
+                    return: true,
+                },
+            });
+
         });
 
         let templateFormNota =
             `
-        <form>
+        <form id="form_nota">
             <div class="mb-3">
                 <label for="nomor_polisi_nota" class="form-label">Nomor Polisi</label>
-                <input type="text" class="form-control" id="nomor_polisi_nota">
+                <input type="text" class="form-control" id="nomor_polisi_nota" name="nomor_polisi_nota">
             </div>
             <div class="mb-3">
                 <label for="nama_costumer" class="form-label">Nama Costumer</label>
-                <input type="text" class="form-control" id="nama_costumer">
+                <input type="text" class="form-control" id="nama_costumer" name="nama_costumer_nota">
             </div>
             <div class="mb-3">
                 <label class="form-label">Merek</label>
-                <select class="form-select" aria-label="Default select example" id="merek">
+                <select class="form-select" aria-label="Default select example" id="merek" name="merek_nota">
                     <option value="Mawar" selected>Mawar</option>
                     <option value="Jempol">Jempol</option>
                     <option value="Bambu">Bambu</option>
@@ -236,11 +327,11 @@
             </div>
             <div class="mb-3">
                 <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" class="form-control" id="quantity">
+                <input type="number" class="form-control" id="quantity" name="quantity_nota">
             </div>
             <div class="mb-3">
                 <label class="form-label">Jenis KG</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="jenis_kg_nota">
                     <option value="5" selected>5</option>
                     <option value="10">10</option>
                     <option value="25">25</option>
@@ -248,16 +339,12 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="jumlah_nota" class="form-label">Jumlah</label>
-                <input type="number" class="form-control" id="jumlah_nota">
+                <label for="harga_nota" class="form-label">Harga</label>
+                <input type="number" class="form-control" id="harga_nota" name="harga_nota" readonly>
             </div>
             <div class="mb-3">
-                <label for="harga_nota" class="form-label">Jumlah</label>
-                <input type="number" class="form-control" id="harga_nota">
-            </div>
-            <div class="mb-3">
-                <label for="total_nota" class="form-label">Jumlah</label>
-                <input type="text" class="form-control" id="total_nota">
+                <label for="total_nota" class="form-label">Total</label>
+                <input type="text" class="form-control" id="total_nota" name="total_nota" readonly>
             </div>
             <div class="text-end">
                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -270,27 +357,27 @@
         <form>
             <div class="mb-3">
                 <label for="nomor_polisi_masuk" class="form-label">Nomor Polisi</label>
-                <input type="text" class="form-control" id="nomor_polisi_masuk">
+                <input type="text" class="form-control" id="nomor_polisi_masuk" name="nomor_polisi_masuk">
             </div>
             <div class="mb-3">
                 <label for="nama_supplier_masuk" class="form-label">Nama Supplier</label>
-                <input type="text" class="form-control" id="nama_supplier_masuk">
+                <input type="text" class="form-control" id="nama_supplier_masuk" name="nama_supplier_masuk">
             </div>
             <div class="mb-3">
                 <label for="tb_masuk_masuk" class="form-label">Tb. Masuk (Kg)</label>
-                <input type="text" class="form-control" id="tb_masuk_masuk">
+                <input type="text" class="form-control" id="tb_masuk_masuk" name="tb_masuk_masuk">
             </div>
             <div class="mb-3">
                 <label for="tb_keluar_masuk" class="form-label">Tb. Keluar (Kg)</label>
-                <input type="text" class="form-control" id="tb_keluar_masuk">
+                <input type="text" class="form-control" id="tb_keluar_masuk" name="tb_keluar_masuk">
             </div>
             <div class="mb-3">
                 <label for="potongan_masuk" class="form-label">Potongan (Kg)</label>
-                <input type="text" class="form-control" id="potongan_masuk">
+                <input type="text" class="form-control" id="potongan_masuk" name="potongan_masuk">
             </div>
             <div class="mb-3">
                 <label for="tb_lokasi_masuk" class="form-label">Tb. Lokasi (Kg)</label>
-                <input type="text" class="form-control" id="tb_lokasi_masuk">
+                <input type="text" class="form-control" id="tb_lokasi_masuk" name="tb_lokasi_masuk">
             </div>
 
             <div class="text-end">
@@ -304,23 +391,23 @@
         <form>
             <div class="mb-3">
                 <label for="nomor_polisi_keluar" class="form-label">Nomor Polisi</label>
-                <input type="text" class="form-control" id="nomor_polisi_keluar">
+                <input type="text" class="form-control" id="nomor_polisi_keluar" name="nomor_polisi_keluar">
             </div>
             <div class="mb-3">
                 <label for="nama_costumer_keluar" class="form-label">Nama Costumer</label>
-                <input type="text" class="form-control" id="nama_costumer_keluar">
+                <input type="text" class="form-control" id="nama_costumer_keluar" name="nama_costumer_keluar">
             </div>
             <div class="mb-3">
                 <label for="tb_masuk_keluar" class="form-label">Tb. Masuk (Kg)</label>
-                <input type="text" class="form-control" id="tb_masuk_keluar">
+                <input type="text" class="form-control" id="tb_masuk_keluar" name="tb_masuk_keluar">
             </div>
             <div class="mb-3">
                 <label for="tb_keluar_keluar" class="form-label">Tb. Keluar (Kg)</label>
-                <input type="text" class="form-control" id="tb_keluar_keluar">
+                <input type="text" class="form-control" id="tb_keluar_keluar" name="tb_keluar_keluar">
             </div>
             <div class="mb-3">
                 <label for="tb_bersih_keluar" class="form-label">Tb. Bersih (Kg)</label>
-                <input type="text" class="form-control" id="tb_bersih_keluar">
+                <input type="text" class="form-control" id="tb_bersih_keluar" name="tb_bersih_keluar">
             </div>
 
             <div class="text-end">
@@ -334,11 +421,11 @@
         <form>
             <div class="mb-3">
                 <label for="nomor_polisi_produksi" class="form-label">Nomor Polisi</label>
-                <input type="text" class="form-control" id="nomor_polisi_produksi">
+                <input type="text" class="form-control" id="nomor_polisi_produksi" name="nomor_polisi_produksi">
             </div>
             <div class="mb-3">
                 <label class="form-label">Merek</label>
-                <select class="form-select" aria-label="Default select example" id="merek">
+                <select class="form-select" aria-label="Default select example" id="merek" name="merek">
                     <option value="Mawar" selected>Mawar</option>
                     <option value="Jempol">Jempol</option>
                     <option value="Bambu">Bambu</option>
@@ -347,11 +434,11 @@
             </div>
             <div class="mb-3">
                 <label for="quantity_produksi" class="form-label">Quantity</label>
-                <input type="number" class="form-control" id="quantity_produksi">
+                <input type="number" class="form-control" id="quantity_produksi" name="quantity_produksi">
             </div>
             <div class="mb-3">
                 <label class="form-label">Jenis KG</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="jenis_kg_produksi">
                     <option value="5" selected>5</option>
                     <option value="10">10</option>
                     <option value="25">25</option>
@@ -360,7 +447,7 @@
             </div>
             <div class="mb-3">
                 <label for="jumlah_produksi" class="form-label">Jumlah</label>
-                <input type="number" class="form-control" id="jumlah_produksi">
+                <input type="number" class="form-control" id="jumlah_produksi" name="jumlah_produksi">
             </div>
 
             <div class="text-end">
@@ -371,24 +458,28 @@
 
         const myModalEl = document.getElementById('tambahItem')
         myModalEl.addEventListener('show.bs.modal', event => {
-            let idTombol = $(event.relatedTarget).parents().eq(1).attr('id')
+            let idTombol = $(event.relatedTarget).parents().eq(2).attr('id')
 
             switch (idTombol) {
                 case 'pills-nota':
                     // toggleActiveNav('.nota')
                     $('#tambahItem .modal-body').html(templateFormNota)
+                    console.log(kirimForm())
                     break;
                 case 'pills-barang-masuk':
                     // toggleActiveNav('.masuk')
                     $('#tambahItem .modal-body').html(templateFormMasuk)
+                    kirimForm()
                     break;
                 case 'pills-barang-keluar':
                     // toggleActiveNav('.keluar')
                     $('#tambahItem .modal-body').html(templateFormKeluar)
+                    kirimForm()
                     break;
                 case 'pills-produksi-beras':
                     // toggleActiveNav('.produksi')
                     $('#tambahItem .modal-body').html(templateFormProduksi)
+                    kirimForm()
                     break;
             }
         })
@@ -403,7 +494,27 @@
         //     })
         // }
 
-        
+        function kirim(data) {
+            let url = 'https://script.google.com/macros/s/AKfycbxZWZpNC1OuwuN1xEPrVtc_jWJ035s-F8BZvUpsVALOijZRTROsW_Rm0NHZzb_W6fNE/exec'
+            return fetch(url, {
+                method: 'post',
+                body: JSON.stringify(data)
+            }).then(res => {
+                return res.json()
+            })
+        }
+
+        function kirimForm() {
+            $('form').submit(function (e) {
+                e.preventDefault()
+                let hasil = kirim($(this).serializeArray())
+                return hasil.then(resp => {
+                    // $('#tabel_nota')
+                    return JSON.parse(resp.sukses)
+                })
+            })
+        }
+
     </script>
 </body>
 
