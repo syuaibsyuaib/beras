@@ -131,6 +131,7 @@
                                 <th>Jumlah</th>
                                 <th>Harga</th>
                                 <th>Total</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -159,6 +160,7 @@
                                 <th>Timbangan Bersih (kg)</th>
                                 <th>Potongan</th>
                                 <th>Timbangan Lokasi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -185,6 +187,7 @@
                                 <th>Timbangan Masuk</th>
                                 <th>Timbangan Keluar</th>
                                 <th>Timbangan Bersih</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -210,6 +213,7 @@
                                 <th>Qty</th>
                                 <th>Tipe Kg</th>
                                 <th>Jumlah Produksi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -234,6 +238,7 @@
                                 <th>Merek</th>
                                 <th>Tipe Kg</th>
                                 <th>Harga Satuan</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -272,49 +277,27 @@
         src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.2/b-2.3.4/b-html5-2.3.4/date-1.3.0/datatables.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $('#tabel_nota').DataTable({
-                search: {
-                    return: true,
-                },
-            });
+        let tabelNota = $('#tabel_nota').DataTable();
+        let tabelBarangMasuk = $('#tabel_barang_masuk').DataTable();
+        let tabelBarangKeluar = $('#tabel_barang_keluar').DataTable();
+        let tabelProduksi = $('#tabel_produksi').DataTable();
+        let tabelAtur = $('#tabel_atur').DataTable();
 
-            $('#tabel_barang_masuk').DataTable({
-                search: {
-                    return: true,
-                },
-            });
-
-            $('#tabel_barang_keluar').DataTable({
-                search: {
-                    return: true,
-                },
-            });
-
-            $('#tabel_produksi').DataTable({
-                search: {
-                    return: true,
-                },
-            });
-
-            $('#tabel_atur').DataTable({
-                search: {
-                    return: true,
-                },
-            });
-
-        });
+        let ikonSampah = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+</svg>`
 
         let templateFormNota =
             `
         <form id="form_nota">
             <div class="mb-3">
                 <label for="nomor_polisi_nota" class="form-label">Nomor Polisi</label>
-                <input type="text" class="form-control" id="nomor_polisi_nota" name="nomor_polisi_nota">
+                <input type="text" class="form-control" id="nomor_polisi_nota" name="nomor_polisi_nota" required>
             </div>
             <div class="mb-3">
                 <label for="nama_costumer" class="form-label">Nama Costumer</label>
-                <input type="text" class="form-control" id="nama_costumer" name="nama_costumer_nota">
+                <input type="text" class="form-control" id="nama_costumer" name="nama_costumer_nota" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Merek</label>
@@ -327,7 +310,7 @@
             </div>
             <div class="mb-3">
                 <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" class="form-control" id="quantity" name="quantity_nota">
+                <input type="number" class="form-control" id="quantity" name="quantity_nota" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Jenis KG</label>
@@ -341,6 +324,10 @@
             <div class="mb-3">
                 <label for="harga_nota" class="form-label">Harga</label>
                 <input type="number" class="form-control" id="harga_nota" name="harga_nota" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="jumlah_nota" class="form-label">Jumlah</label>
+                <input type="number" class="form-control" id="jumlah_nota" name="jumlah_nota" readonly>
             </div>
             <div class="mb-3">
                 <label for="total_nota" class="form-label">Total</label>
@@ -374,6 +361,10 @@
             <div class="mb-3">
                 <label for="potongan_masuk" class="form-label">Potongan (Kg)</label>
                 <input type="text" class="form-control" id="potongan_masuk" name="potongan_masuk">
+            </div>
+            <div class="mb-3">
+                <label for="tb_bersih_masuk" class="form-label">Timbangan Bersih (Kg)</label>
+                <input type="text" class="form-control" id="tb_bersih_masuk" name="tb_bersih_masuk">
             </div>
             <div class="mb-3">
                 <label for="tb_lokasi_masuk" class="form-label">Tb. Lokasi (Kg)</label>
@@ -464,22 +455,22 @@
                 case 'pills-nota':
                     // toggleActiveNav('.nota')
                     $('#tambahItem .modal-body').html(templateFormNota)
-                    console.log(kirimForm())
+                    kirimForm(tabelNota)
                     break;
                 case 'pills-barang-masuk':
                     // toggleActiveNav('.masuk')
                     $('#tambahItem .modal-body').html(templateFormMasuk)
-                    kirimForm()
+                    kirimForm(tabelBarangMasuk)
                     break;
                 case 'pills-barang-keluar':
                     // toggleActiveNav('.keluar')
                     $('#tambahItem .modal-body').html(templateFormKeluar)
-                    kirimForm()
+                    kirimForm(tabelBarangKeluar)
                     break;
                 case 'pills-produksi-beras':
                     // toggleActiveNav('.produksi')
                     $('#tambahItem .modal-body').html(templateFormProduksi)
-                    kirimForm()
+                    kirimForm(tabelProduksi)
                     break;
             }
         })
@@ -504,15 +495,25 @@
             })
         }
 
-        function kirimForm() {
+        function kirimForm(idTabel) {
             $('form').submit(function (e) {
                 e.preventDefault()
                 let hasil = kirim($(this).serializeArray())
-                return hasil.then(resp => {
+                hasil.then(resp => {
                     // $('#tabel_nota')
-                    return JSON.parse(resp.sukses)
+                    isiTabel(idTabel, JSON.parse(resp.sukses))
                 })
             })
+        }
+
+        function isiTabel(idTabel, data) {
+            let arr = []
+            data.forEach(val => {
+                arr.push(val.value)
+            })
+            arr.push(ikonSampah)
+            arr.unshift(idTabel.rows()[0].length + 1)
+            idTabel.rows.add([arr]).draw();
         }
 
     </script>
